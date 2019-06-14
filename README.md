@@ -100,14 +100,13 @@ Algorithm :
 	And, We want to find the shortest path by HIERHOLZER'S ALGORITHM
 	
 		HIERHOLZER'S ALGORITHM :
-			This is an algorithm to find an Eulerian circuit in a connected graph in which
-			every vertex has even degree.
-			1.Choose any vertex v and push, it onto a stack. Initailly all edges are
-			unmarked.
-			2.While the stack is noempty, look at the top vertex, u, on the stack. If u
-			has an unmarked incident edge,, the pop u off the stack and print it.
-			When the stack is empty, you will have printed a sequence of vertices that correspond to Eulerian
-			circuit.
+			This is an algorithm to find an Eulerian circuit in a connected graph in which every vertex has 
+			even degree.
+			1.Choose any vertex v and push, it onto a stack. Initailly all edges are unmarked.
+			2.While the stack is noempty, look at the top vertex, u, on the stack. If u has an unmarked
+			incident edge,, the pop u off the stack and print it.
+			3.When the stack is empty, you will have printed a sequence of vertices that correspond to 
+			Eulerian circuit.
 			
 	pseudocode reference by : 
 	https://iampandiyan.blogspot.com/2013/10/c-program-to-find-euler-path-or-euler.html	
@@ -142,9 +141,9 @@ Program :
 Find Bug About API : 
 	The function path->debug() doesn't include all possible, it just print some combination.
 	When I input a data likes topo.txt
-		a b
-		b c
-		c d
+	a b
+	b c
+	c d
 	program will add capacity to each, although it doesn't influence the work, but it is a bug.
 
 	
