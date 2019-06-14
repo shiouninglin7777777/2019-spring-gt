@@ -139,12 +139,10 @@ Program :
 	pathfromBFS : to find the shortest path between two vertex.
 	
 Find Bug About API : 
+
 	The function path->debug() doesn't include all possible, it just print some combination.
-	When I input a data likes topo.txt
-	a b
-	b c
-	c d
-	program will add capacity to each, although it doesn't influence the work, but it is a bug.
+	When I input a data likes topo.txt. First Line a b, Second Line b c, Third line c d, program will add 
+	capacity to each, although it doesn't influence the work, but it is a bug.
 
 	
 	
