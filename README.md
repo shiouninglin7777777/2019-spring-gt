@@ -138,7 +138,7 @@ Program :
 	distance_calcultate : to find the shortest distance about two point.
 	pathfromBFS : to find the shortest path between two vertex.
 	
-	Create emporary Graph to save odd degree paris, and find the shortest path by Breadth-First Algorithm,
+	Create temporary Graph to save odd degree paris, and find the shortest path by Breadth-First Algorithm,
 	
 	NetworkManager *nm2 = new NetworkManager();	
 	nm2->interpret("topo.txt");
