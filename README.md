@@ -80,64 +80,74 @@ Or you can just [DOWNLOAD a pre-built VM images](http://gofile.me/39GpL/XU5tznyO
 > [Guide of environment setting](https://hackmd.io/-5WZQC-1QqOeV3KUX65tEw?view) on Windows.
 
 ## TODO - Your descriptions about solutions/algorithms/results
-### Chinese Postman Problem
-#### Abstract
-A mail carrier must traverse all edges in a road network, starting and ending at the Post 
-office
+Proposition :
+	In graph theory, a branch of mathematics and computer science, the Chinese postman problem
+	(CPP), postman tour or route inspection problem is to find a shortest closed path or circuit
+	visits every edge of an (connected) undirected graph. When the graph has an Eulereian circuit
+	(a closed walk that covers every edge once), that circuit is an optimal solution. Otherwise,
+	the optimization problem is to find the smallest number of graph edges to duplicat (or the
+	subset of edges with the minimum possible total weight) so that the resulting multigraph does
+	have an Eulerian circuit. It may be solved in polynomial time. (Reference by WIKI)
 
-The edges have nonnegative weights representing distance or time.
-We seek a closed walk of minimum total lenth that uses all the edges.
+Algorithm :
+	My program is target to undirected graph which the degree equals to odd number is two or zero.
+	Firstly, I will find the input graph whether it has the points which has deree equals odd number
+	, if it has the points, the points will be saved in the other graph nm2, If it has no points, program go to
+	next function that is find EulerPath, in the graph nm1¡Awe will use Breadth-First Search to find shortest
+	distance betweeen this tow points, and the edge which has beed found pass by the function will be
+	saved in nm2, then the edge in nm2 will be saved in nm. 
+	
+	And, We want to find the shortest path by HIERHOLZER'S ALGORITHM
+	
+		HIERHOLZER'S ALGORITHM :
+			This is an algorithm to find an Eulerian circuit in a connected graph in which
+			every vertex has even degree.
+			1.Choose any vertex v and push, it onto a stack. Initailly all edges are
+			unmarked.
+			2.While the stack is noempty, look at the top vertex, u, on the stack. If u
+			has an unmarked incident edge,, the pop u off the stack and print it.
+			When the stack is empty, you will have printed a sequence of vertices that correspond to Eulerian
+			circuit.
+			
+	pseudocode reference by : 
+	https://iampandiyan.blogspot.com/2013/10/c-program-to-find-euler-path-or-euler.html	
+	
+	The Path which I found will be saved in output.txt.
+		
+Supplement : 
+	BFS Algorithm : A strategy for searching in a graph. The BFS begins at aroot node and inspects all the 
+	neighborings nodes. Then for each of those neighbor nodes in turn, it inspects their neighbors nodes which
+	were unvisited, and so on.
+	
+	BFS code is referenced by :
+	http://alrightchiu.github.io/SecondRound/graph-breadth-first-searchbfsguang-du-you-xian-sou-xun.html
+		
+File : 
+	topo.txt : get graph data
+	output.txt : ouptut the path (look from the back)
+	output.dot : output dot file
+	output.png : output image data 
+	
+Program :
+	
+	main : 
+		including 
+		1.access of input file"topo", 
+		2.find which vertex is odd, 
+		3.find EulerPath, 
+		4.output the answer"output.txt","output.dot","output.png".
+	distance_calcultate : to find the shortest distance about two point.
+	pathfromBFS : to find the shortest path between two vertex.
+	
+Find Bug About API : 
+	The function path->debug() doesn't include all possible, it just print some combination.
+	When I input a data likes topo.txt
+		a b
+		b c
+		c d
+	program will add capacity to each, although it doesn't influence the work, but it is a bug.
 
-keypoints:
-  If every vertex is even, then the graph is Eulerian and the answer is the sum of the edge 
-  weights.
-  Otherwise,we must repeat edges.
-and we can find the ideal solution is the Euler path
+	
+	
 
-#### algorithms
-first,I find every degree of all vertex and identify which vertex has odd degree.        
-Put them into odd_vertex vector.   
-If the number of the odd_vertex size is 0,the graph is a Euler circuit  
-We can find the Euler path and the finalpath is the answer  
-if the number of the odd_vertex size is 2 or bigger than 2,it can be consider two situation
-
-1.These two vertex are connected.  
-  Directly build the connection between these two vertex.  
-2.These two vertex are not connected.  
-  Find the shortest path between these two vertex, and connect each vertex in shortest path.  
-this program can find the bestsolution under the condition that the number of vertex with an odd degree is 2
-and not finish bigger than two yet.
-
-use BFS to find the shortest path and record the path of two odd_vertex  
-since all the weight is 1,we can use BFS instead of Dijkstra's algorithm to find the shortest path.
-
-To find the Euler path of the graph  
-I use two vector  
-one is tempPath and the other is finalpath.  
-first, I check which point is connected to start point  
-and push the head which is the start point into tempPath.  
-and delete the edge between head and tail  
-second,use the tail to be the next head and repeat the first step  
-if can't find any edge,push the last vector of tempPath to finalpath  
-and delete the last vector of tempPath  
-after this it can find other path if the last vector of tempPath have other connection  
-repeat the first step until all edge is deleted
-
-#### program
-Vertex_Number_getting is transfer the node to a number  
-distance_getting_fromBFS is calculate the shortest distance of two vertex  
-path_getting_fromBFS is record the shortest path
-
-#### file name identification
-1.main.cc:The main program.
-
-2.topo.txt:The input graph.
-
-5.Euler_Path.dot:The dot file of result.
-
-6.Euler_Path.png:The png file of result.
-
-7.Euler_Path.txt:The txt file of result.
-
-  
-  
+			
