@@ -122,6 +122,7 @@ Supplement :
 	http://alrightchiu.github.io/SecondRound/graph-breadth-first-searchbfsguang-du-you-xian-sou-xun.html
 		
 File : 
+
 	topo.txt : get graph data
 	output.txt : ouptut the path (look from the back)
 	output.dot : output dot file
@@ -129,8 +130,7 @@ File :
 	
 Program :
 	
-	main : 
-		including 
+	main : including following element
 		1.access of input file"topo", 
 		2.find which vertex is odd, 
 		3.find EulerPath, 
